@@ -5,3 +5,6 @@
 	path = public
 	url = git@github.com:jaeyoung0509/jaeyoung0509.github.io.git
 	branch = main
+[submodule "themes/hugo-tranquilpeak-theme"]
+	path = themes/hugo-tranquilpeak-theme
+	url = https://github.com/kakawait/hugo-tranquilpeak-theme.git
