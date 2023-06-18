@@ -21,7 +21,7 @@ Media inside **static** folder is from '/'.
 ![Svelte](favicon.png)
 
 ```ts
-function gree(name: string) {
+function greet(name: string) {
     console.log(name;
 }
 ```

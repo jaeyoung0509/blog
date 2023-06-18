@@ -4,7 +4,6 @@
 </script>
 
 
-
 <svelte:head>
     <title>{config.title}</title>
 </svelte:head>

@@ -14,7 +14,7 @@ Hey friends :)
 
 
 ```typescript
-function gree(name: string) {
+function greet(name: string) {
     console.log(name);
 }
 ```
