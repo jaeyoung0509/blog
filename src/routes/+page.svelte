@@ -3,9 +3,7 @@
     export let data 
 </script>
 
-<pre>
-    {JSON.stringify(data, null, 2)}
-</pre>
+
 
 <svelte:head>
     <title>{config.title}</title>
