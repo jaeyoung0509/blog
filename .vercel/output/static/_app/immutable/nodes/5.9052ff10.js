@@ -1,0 +1,1 @@
+import{S as r,i,s as l,k as m,q as h,l as p,m as d,r as _,h as o,b as f,J as u,X as s}from"../chunks/index.da3d1cc8.js";function x(c){let t,n;return{c(){t=m("h1"),n=h("contact")},l(e){t=p(e,"H1",{});var a=d(t);n=_(a,"contact"),a.forEach(o)},m(e,a){f(e,t,a),u(t,n)},p:s,i:s,o:s,d(e){e&&o(t)}}}class q extends r{constructor(t){super(),i(this,t,null,x,l,{})}}export{q as component};
