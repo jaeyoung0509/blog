@@ -1,4 +1,4 @@
-const title = "Jaeyoung0509";
+const title = "ejaebbang😀";
 const description = "Svelte blog for posts";
 const url = "blabla";
 export {

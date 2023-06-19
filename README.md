@@ -39,6 +39,6 @@ You can preview the production build with `npm run preview`.
 
 
 ### Deploying
-```
+```shell
 pnpm run build 
 ```
