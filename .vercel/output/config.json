@@ -24,6 +24,17 @@
 			}
 		},
 		{
+			"src": "/temporal",
+			"dest": "/temporal/"
+		},
+		{
+			"src": "/temporal/",
+			"status": 308,
+			"headers": {
+				"Location": "/temporal"
+			}
+		},
+		{
 			"src": "/first-post",
 			"dest": "/first-post/"
 		},
@@ -68,6 +79,9 @@
 		},
 		"contact.html": {
 			"path": "contact"
+		},
+		"temporal.html": {
+			"path": "temporal"
 		},
 		"first-post.html": {
 			"path": "first-post"

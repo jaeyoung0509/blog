@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" href="https://fav.farm/🔥" />
+		<link rel="icon" href="./favicon.png" />
+		<link rel="alternate" type="application/atom+xml" href="/rss.xml" /> 
+		<meta name="viewport" content="width=device-width" />
+		
+		<link href="./_app/immutable/assets/0.7de6366d.css" rel="stylesheet">
+		<link href="./_app/immutable/assets/3.5c59e260.css" rel="stylesheet">
+		<link rel="modulepreload" href="./_app/immutable/entry/start.f896ffea.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/index.da3d1cc8.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/singletons.a44b2032.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/paths.6619d553.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/control.f5b05b5f.js">
+		<link rel="modulepreload" href="./_app/immutable/entry/app.d45eb52f.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/preload-helper.41c905a7.js">
+		<link rel="modulepreload" href="./_app/immutable/nodes/0.2dd12525.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/config.b71971b7.js">
+		<link rel="modulepreload" href="./_app/immutable/nodes/3.4b494b67.js"><title>Temporal study</title><!-- HEAD_svelte-ylbs26_START --><meta property="og:type" content="article"><meta property="og:title" content="Temporal study"><!-- HEAD_svelte-ylbs26_END -->
+		<script type="module">
+			const theme = localStorage.getItem('color-scheme')
+
+			theme
+				? document.documentElement.setAttribute('color-scheme', theme)
+				: localStorage.setItem('color-scheme', 'dark')
+		</script>
+	</head>
+	<body data-sveltekit-preload-data="hover">
+		<div style="display: contents">
+
+
+<div class="layout svelte-1ah6p2t"><nav class="svelte-qjyd9r"><a href="/" class="title svelte-qjyd9r"><b>ejaebbang😀</b></a>
+
+    <ul class="links svelte-qjyd9r"><li><a href="/about" class="svelte-qjyd9r">About</a></li>
+
+        <li><a href="/contact" class="svelte-qjyd9r">Contact</a></li>
+
+        <li><a href="/rss.xml" target="_blank" class="svelte-qjyd9r">RSS</a></li></ul>
+
+    <button aria-label="Toggle theme" class="svelte-114mtci"><div class="svelte-114mtci"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide-icon lucide lucide-moon "><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path></svg>
+			<span>Dark</span></div>
+</button>
+</nav>
+ <main class="svelte-1ah6p2t"><div class="transition svelte-vcdv4c">
+
+
+<article class="svelte-8uncrq">
+	<hgroup><h1 class="svelte-8uncrq">Temporal study</h1>
+		<p class="svelte-8uncrq">Published at Jul 3, 2023</p></hgroup>
+
+  
+	<div class="tags svelte-8uncrq"><span class="surface-4 svelte-8uncrq">#cadence</span><span class="surface-4 svelte-8uncrq">#temporal</span></div>
+
+  
+	<div class="prose"><h2 id="what-is-temporal">What is Temporal</h2>
+<ul><li><code>Uber Cadence</code>의 fork open service<ul><li></li></ul></li>
+<li>Temporal은 분산 이벤트 워크플로우를 실행하는데 최적화된 완전 관리 서비스 </li>
+<li>강력한 상태 관리, 워크플로우 재시작 및 오류 처리 기능을 제공 </li></ul>
+<h3 id="more-detail">More Detail</h3>
+<h4 id="temporal-client">temporal client</h4>
+<ul><li>워크플로우를 시작하고 상태를 확인하고 작업을 완료</li></ul>
+<h4 id="temporal-server">temporal server</h4>
+<ul><li>워크플로우를 저장 관리</li>
+<li>모니터링</li></ul>
+<h2 id="who-use-temporal-usecase">Who use temporal: UseCase</h2>
+<ul><li>the most valuable <code>mission-critical</code> workloads in any software company are long-running and tie together multiple services </li></ul>
+<h3 id="hashicorp">HashiCorp</h3>
+<blockquote><ul><li>HashiCorp needed to build long-running, reliable, fault-tolerant tasks for the HashiCorp Cloud Platform.</li>
+<li>Temporal’s technology satisfied all of these requirements out of the box and allowed our developers to focus on business logic.</li>
+<li>Without Temporal’s technology, we would’ve spent a significant amount of time rebuilding Temporal and would’ve very likely done a worse job.</li></ul></blockquote>
+<h3 id="uber">Uber</h3>
+<h3 id="netflix">Netflix</h3>
+<h3 id="coinbase">Coinbase</h3>
+<h3 id="stripe">Stripe</h3>
+<h3 id="checker">Checker</h3>
+<ul><li>미국 범죄기록(?) 조회 플랫폼</li>
+<li>미국에서 해당 기록을 조회하는데 오래 걸림(~15일)  -&gt; long running</li></ul>
+<h3 id="yum">yum</h3>
+<h2 id="temporal-vs-others">Temporal vs others</h2>
+<h4 id="temporal">temporal</h4>
+<ul><li>pros:<ul><li>장기 실행되는 워크플로우에 대한 내결함성, 유지관리, 상태 추적등을 지원</li>
+<li>업무 프로세스를 코드로 모델링 -&gt; 복잡한 비지니스 관리하기 쉬움</li>
+<li>activity와 workflow가 실패하더라도 자동적으로 재시도</li></ul></li>
+<li>cons:<ul><li>서버와 클라이언트를 모두 관리 해야 됨으로 운영 부하
+-&gt; temporal cloud</li>
+<li>서버리스 환경에서 사용하기 어려울 수 있음
+-&gt; client에서 풀링을 사용하기 때문에 람다환경과 안맞을 수 있음</li></ul></li></ul>
+<h4 id="sqs">sqs</h4>
+<ul><li>pros:<ul><li>분산 시스템에서 메시지를 안정적으로</li>
+<li>대기열 메시징에 대해 높은 확장성과 내구성</li>
+<li>완전히 관리되는 서비스 -&gt; 인프라 부담 적음</li></ul></li>
+<li>cons:<ul><li>복잡한 워크프롤우 관리나 상태 추적 기능이 없음</li>
+<li>메시지 처리가 순차적이지 않을 수 있으며, 중복 처리 발생 가능성(멱등성 이슈)  -&gt; 상태 관리 어렵</li></ul></li></ul>
+<h4 id="kafka">kafka</h4>
+<ul><li>pros<ul><li>실시간 데이터를 스트리밍 처리하는데 특화</li>
+<li>대용량 데이터 처리에 대한 높은 처리량과 성능 지원</li>
+<li>데이터 레코드에 대한 내구성 &amp; 장애 복구 </li></ul></li>
+<li>cons<ul><li>설정과 운영 부담</li>
+<li>메시지 삭제 시점 관리, 파티셔닝, 복제 등 세부 설정 필요</li></ul></li></ul>
+<h4 id="step-function">step function</h4>
+<ul><li>pros<ul><li>복잡한 업무 프로세스를 모델링 &amp; 관리</li>
+<li>aws와 통합이 잘 되어 있음</li>
+<li>인프라 관리 부담이 적음</li></ul></li>
+<li>cons<ul><li>비용 부담</li>
+<li>복잡한 애플리케이션에 적합하지 않음 -&gt; json 기반 시스템은 복잡한 로직을 효율적으로 표현하기 어려움</li></ul></li></ul></div>
+</article></div></main>
+ <footer class="svelte-aw6h72"><p class="svelte-aw6h72">ejaebbang😀 © 2023</p>
+</footer>
+</div>
+
+
+			
+			<script>
+				{
+					__sveltekit_11sx48v = {
+						base: new URL(".", location).pathname.slice(0, -1),
+						env: {}
+					};
+
+					const element = document.currentScript.parentElement;
+
+					const data = [null,null];
+
+					Promise.all([
+						import("./_app/immutable/entry/start.f896ffea.js"),
+						import("./_app/immutable/entry/app.d45eb52f.js")
+					]).then(([kit, app]) => {
+						kit.start(app, element, {
+							node_ids: [0, 3],
+							data,
+							form: null,
+							error: null
+						});
+					});
+				}
+			</script>
+		</div>
+	</body>
+</html>
