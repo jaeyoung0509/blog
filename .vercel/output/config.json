@@ -24,14 +24,14 @@
 			}
 		},
 		{
-			"src": "/temporal",
-			"dest": "/temporal/"
+			"src": "/third-post",
+			"dest": "/third-post/"
 		},
 		{
-			"src": "/temporal/",
+			"src": "/third-post/",
 			"status": 308,
 			"headers": {
-				"Location": "/temporal"
+				"Location": "/third-post"
 			}
 		},
 		{
@@ -80,8 +80,8 @@
 		"contact.html": {
 			"path": "contact"
 		},
-		"temporal.html": {
-			"path": "temporal"
+		"third-post.html": {
+			"path": "third-post"
 		},
 		"first-post.html": {
 			"path": "first-post"
