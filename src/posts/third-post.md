@@ -8,39 +8,76 @@ categories:
 published: true
 ---
 ## What is Temporal 
+
 - `Uber Cadence`의 fork open service
-  -  
 - Temporal은 분산 이벤트 워크플로우를 실행하는데 최적화된 완전 관리 서비스 
 - 강력한 상태 관리, 워크플로우 재시작 및 오류 처리 기능을 제공 
+
+
 ### More Detail
+
 #### temporal client 
 - 워크플로우를 시작하고 상태를 확인하고 작업을 완료
+
+
 #### temporal server 
 - 워크플로우를 저장 관리
 - 모니터링
 
-## Who use temporal: UseCase
+## UseCases
 - the most valuable `mission-critical` workloads in any software company are long-running and tie together multiple services 
+
+### business transactions
+- reliability, consistency, failure compensation long running operations and business transactions for your must critical transfers
+
+### Coinbase 
+[link](https://temporal.io/case-studies/reliable-crypto-transactions-at-coinbase)
+- coinbase processes millions of crypto transactions every day.
+From their users point of view, each transactions is reduced to a binary result of succeeded or failed
+```
+coinbase user-level tx 
+1. withdraw foocoin from user a's wallet
+2. withdraw barcoin from user b's wallet 
+3. deposit foocoin into user b's wallet 
+4. deposit barcoin into user a's wallet 
+```
+- if a step fails the tx until steps which were already executed are rolled back
+- this need to rollback is traditionally accomplished using SAGA 
+-> a common pattern for handling rollback in distributed tx 
+- coinbase relied on custom engine, but when teams began trying to extend the system to be useful in other domains things became painful. each new use case the system needed to support translated into a large amount of plumbing(*배관 시설) and developer work.
+- so coinbase searching for answers
+```
+Zeebe 
+AWS step functions
+Temporal/Cadence
+```
+- aws step function development models forced users to predefine all of their possible execution path upfront 
+  - this is a real problem in the `SAGAS` context, since compensation logic is required for each step which can potentially fail, With step functions this meant that each step required one or more prebuilt DAGs to handle their potential failures, if your `SAGAS` consist of a few simple steps pre building DAGs might be feasible, but as complexity increases the overhead becomes enormous 
+  - cf) DAG: directed acyclic graph: 방향성을 가진 비순환 그래프, 각각의 단계를 노드로 표현하고 이들 사이의 종속성과 실행 순서를 화살표로 표현
+### Uber
+
+
+## etc
+
 ### HashiCorp
 > - HashiCorp needed to build long-running, reliable, fault-tolerant tasks for the HashiCorp Cloud Platform.
 > - Temporal's technology satisfied all of these requirements out of the box and allowed our developers to focus on business logic.
 > - Without Temporal's technology, we would've spent a significant amount of time rebuilding Temporal and would've very likely done a worse job.
 
-### Uber
-
 ### Netflix 
-
-### Coinbase 
 
 ### Stripe
 
 ### Checker 
 - 미국 범죄기록(?) 조회 플랫폼
 - 미국에서 해당 기록을 조회하는데 오래 걸림(~15일)  -> long running
+
+
 ### yum 
 
 
 ## Temporal vs others
+
 #### temporal
 - pros:
   - 장기 실행되는 워크플로우에 대한 내결함성, 유지관리, 상태 추적등을 지원
@@ -78,4 +115,13 @@ published: true
 - cons
   -  비용 부담
   -  복잡한 애플리케이션에 적합하지 않음 -> json 기반 시스템은 복잡한 로직을 효율적으로 표현하기 어려움
- 
+ ```
+
+17. Knock, knock.
+Who’s there?
+Orange.
+Orange who?
+Orange you going to let me in?
+
+
+```

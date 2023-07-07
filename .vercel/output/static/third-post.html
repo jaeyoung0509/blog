@@ -9,16 +9,16 @@
 		
 		<link href="./_app/immutable/assets/0.7de6366d.css" rel="stylesheet">
 		<link href="./_app/immutable/assets/3.5c59e260.css" rel="stylesheet">
-		<link rel="modulepreload" href="./_app/immutable/entry/start.6957d9c1.js">
+		<link rel="modulepreload" href="./_app/immutable/entry/start.3b831994.js">
 		<link rel="modulepreload" href="./_app/immutable/chunks/index.da3d1cc8.js">
-		<link rel="modulepreload" href="./_app/immutable/chunks/singletons.b3519fdd.js">
-		<link rel="modulepreload" href="./_app/immutable/chunks/paths.b14c1af4.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/singletons.9d118ed9.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/paths.7878974f.js">
 		<link rel="modulepreload" href="./_app/immutable/chunks/control.f5b05b5f.js">
-		<link rel="modulepreload" href="./_app/immutable/entry/app.66ef8288.js">
+		<link rel="modulepreload" href="./_app/immutable/entry/app.08d381aa.js">
 		<link rel="modulepreload" href="./_app/immutable/chunks/preload-helper.41c905a7.js">
-		<link rel="modulepreload" href="./_app/immutable/nodes/0.7c71143c.js">
+		<link rel="modulepreload" href="./_app/immutable/nodes/0.47b81af3.js">
 		<link rel="modulepreload" href="./_app/immutable/chunks/config.b71971b7.js">
-		<link rel="modulepreload" href="./_app/immutable/nodes/3.dbb22f41.js"><title>Temporal study</title><!-- HEAD_svelte-ylbs26_START --><meta property="og:type" content="article"><meta property="og:title" content="Temporal study"><!-- HEAD_svelte-ylbs26_END -->
+		<link rel="modulepreload" href="./_app/immutable/nodes/3.ab93e207.js"><title>Temporal study</title><!-- HEAD_svelte-ylbs26_START --><meta property="og:type" content="article"><meta property="og:title" content="Temporal study"><!-- HEAD_svelte-ylbs26_END -->
 		<script type="module">
 			const theme = localStorage.getItem('color-scheme')
 
@@ -55,7 +55,7 @@
 
   
 	<div class="prose"><h2 id="what-is-temporal">What is Temporal</h2>
-<ul><li><code>Uber Cadence</code>의 fork open service<ul><li></li></ul></li>
+<ul><li><code>Uber Cadence</code>의 fork open service</li>
 <li>Temporal은 분산 이벤트 워크플로우를 실행하는데 최적화된 완전 관리 서비스 </li>
 <li>강력한 상태 관리, 워크플로우 재시작 및 오류 처리 기능을 제공 </li></ul>
 <h3 id="more-detail">More Detail</h3>
@@ -64,15 +64,36 @@
 <h4 id="temporal-server">temporal server</h4>
 <ul><li>워크플로우를 저장 관리</li>
 <li>모니터링</li></ul>
-<h2 id="who-use-temporal-usecase">Who use temporal: UseCase</h2>
+<h2 id="usecases">UseCases</h2>
 <ul><li>the most valuable <code>mission-critical</code> workloads in any software company are long-running and tie together multiple services </li></ul>
+<h3 id="business-transactions">business transactions</h3>
+<ul><li>reliability, consistency, failure compensation long running operations and business transactions for your must critical transfers</li></ul>
+<h3 id="coinbase">Coinbase</h3>
+<p><a href="https://temporal.io/case-studies/reliable-crypto-transactions-at-coinbase" rel="nofollow">link</a></p>
+<ul><li>coinbase processes millions of crypto transactions every day.
+From their users point of view, each transactions is reduced to a binary result of succeeded or failed</li></ul>
+<!-- HTML_TAG_START --><pre class="shiki poimandres" style="background-color: #1b1e28" tabindex="0"><code><span class="line"><span style="color: #a6accd">coinbase user-level tx </span></span>
+<span class="line"><span style="color: #a6accd">1. withdraw foocoin from user a&#39;s wallet</span></span>
+<span class="line"><span style="color: #a6accd">2. withdraw barcoin from user b&#39;s wallet </span></span>
+<span class="line"><span style="color: #a6accd">3. deposit foocoin into user b&#39;s wallet </span></span>
+<span class="line"><span style="color: #a6accd">4. deposit barcoin into user a&#39;s wallet </span></span></code></pre><!-- HTML_TAG_END -->
+<ul><li>if a step fails the tx until steps which were already executed are rolled back</li>
+<li>this need to rollback is traditionally accomplished using SAGA
+-&gt; a common pattern for handling rollback in distributed tx </li>
+<li>coinbase relied on custom engine, but when teams began trying to extend the system to be useful in other domains things became painful. each new use case the system needed to support translated into a large amount of plumbing(*배관 시설) and developer work.</li>
+<li>so coinbase searching for answers</li></ul>
+<!-- HTML_TAG_START --><pre class="shiki poimandres" style="background-color: #1b1e28" tabindex="0"><code><span class="line"><span style="color: #a6accd">Zeebe </span></span>
+<span class="line"><span style="color: #a6accd">AWS step functions</span></span>
+<span class="line"><span style="color: #a6accd">Temporal/Cadence</span></span></code></pre><!-- HTML_TAG_END -->
+<ul><li>aws step function development models forced users to predefine all of their possible execution path upfront <ul><li>this is a real problem in the <code>SAGAS</code> context, since compensation logic is required for each step which can potentially fail, With step functions this meant that each step required one or more prebuilt DAGs to handle their potential failures, if your <code>SAGAS</code> consist of a few simple steps pre building DAGs might be feasible, but as complexity increases the overhead becomes enormous </li>
+<li>cf) DAG: directed acyclic graph: 방향성을 가진 비순환 그래프, 각각의 단계를 노드로 표현하고 이들 사이의 종속성과 실행 순서를 화살표로 표현</li></ul></li></ul>
+<h3 id="uber">Uber</h3>
+<h2 id="etc">etc</h2>
 <h3 id="hashicorp">HashiCorp</h3>
 <blockquote><ul><li>HashiCorp needed to build long-running, reliable, fault-tolerant tasks for the HashiCorp Cloud Platform.</li>
 <li>Temporal’s technology satisfied all of these requirements out of the box and allowed our developers to focus on business logic.</li>
 <li>Without Temporal’s technology, we would’ve spent a significant amount of time rebuilding Temporal and would’ve very likely done a worse job.</li></ul></blockquote>
-<h3 id="uber">Uber</h3>
 <h3 id="netflix">Netflix</h3>
-<h3 id="coinbase">Coinbase</h3>
 <h3 id="stripe">Stripe</h3>
 <h3 id="checker">Checker</h3>
 <ul><li>미국 범죄기록(?) 조회 플랫폼</li>
@@ -104,7 +125,14 @@
 <li>aws와 통합이 잘 되어 있음</li>
 <li>인프라 관리 부담이 적음</li></ul></li>
 <li>cons<ul><li>비용 부담</li>
-<li>복잡한 애플리케이션에 적합하지 않음 -&gt; json 기반 시스템은 복잡한 로직을 효율적으로 표현하기 어려움</li></ul></li></ul></div>
+<li>복잡한 애플리케이션에 적합하지 않음 -&gt; json 기반 시스템은 복잡한 로직을 효율적으로 표현하기 어려움</li>
+</ul><!-- HTML_TAG_START --><pre class="shiki poimandres" style="background-color: #1b1e28" tabindex="0"><code><span class="line"><span style="color: #a6accd"></span></span></code></pre><!-- HTML_TAG_END --></li></ul>
+<ol start="17"><li>Knock, knock.
+Who’s there?
+Orange.
+Orange who?
+Orange you going to let me in?</li></ol>
+<!-- HTML_TAG_START --><pre class="shiki poimandres" style="background-color: #1b1e28" tabindex="0"><code><span class="line"><span style="color: #a6accd"></span></span></code></pre><!-- HTML_TAG_END --></div>
 </article></div></main>
  <footer class="svelte-aw6h72"><p class="svelte-aw6h72">ejaebbang😀 © 2023</p>
 </footer>
@@ -114,7 +142,7 @@
 			
 			<script>
 				{
-					__sveltekit_tn7enm = {
+					__sveltekit_ol7tg3 = {
 						base: new URL(".", location).pathname.slice(0, -1),
 						env: {}
 					};
@@ -124,8 +152,8 @@
 					const data = [null,null];
 
 					Promise.all([
-						import("./_app/immutable/entry/start.6957d9c1.js"),
-						import("./_app/immutable/entry/app.66ef8288.js")
+						import("./_app/immutable/entry/start.3b831994.js"),
+						import("./_app/immutable/entry/app.08d381aa.js")
 					]).then(([kit, app]) => {
 						kit.start(app, element, {
 							node_ids: [0, 3],
