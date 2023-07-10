@@ -115,13 +115,16 @@ Temporal/Cadence
 - cons
   -  비용 부담
   -  복잡한 애플리케이션에 적합하지 않음 -> json 기반 시스템은 복잡한 로직을 효율적으로 표현하기 어려움
- ```
 
-17. Knock, knock.
-Who’s there?
-Orange.
-Orange who?
-Orange you going to let me in?
-
+https://www.grandeur.dev/blog/temporal-and-architecture-shift-at-grandeur-backend
+```
+Worker: Worker는 Temporal 클러스터와 통신하는 프로세스입니다. Worker는 클러스터에서 작업을 요청하고 결과를 수신합니다. Worker는 다양한 언어로 작성할 수 있으며 다양한 플랫폼에서 실행할 수 있습니다.
+Client: Client는 Temporal 클러스터와 통신하는 라이브러리입니다. Client는 다양한 언어로 제공되며 다양한 플랫폼에서 사용할 수 있습니다.
+Activity: Activity는 Worker에서 수행할 수 있는 단위 작업입니다. Activity는 workflow를 구성하는 가장 작은 단위입니다. Activity는 worker에서 실행되며, workflow를 통해 다른 activity와 통신할 수 있습니다.
+Task: Task는 activity를 구성하는 단위입니다. Task는 retry, cancel, timeout 기능을 제공합니다. Task는 context를 제공합니다.
+Workflow: Workflow는 activity를 조합하여 만든 작업입니다. Workflow는 복잡한 작업을 수행하는 데 사용됩니다.
+Domain: Domain은 workflow를 그룹화하는 단위입니다. Domain은 보안, 리소스, 모니터링을 위해 사용됩니다.
+Schedule: Schedule은 workflow를 일정에 따라 실행하는 단위입니다. Schedule은 workflow를 자동화하는 데 사용됩니다.
+API: Temporal은 REST API와 gRPC API를 제공합니다. API는 Temporal 클러스터와 통신하는 데 사용됩니다.
 
 ```
